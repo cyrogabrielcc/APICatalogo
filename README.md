@@ -1,3 +1,4 @@
 # API .NET
 
-- Projeto desenvolvido, utilizando o EFCore / Pomelo 
+- Projeto desenvolvido, utilizando o EFCore 
+- SQL Server 
