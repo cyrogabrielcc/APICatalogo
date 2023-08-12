@@ -1,4 +1,5 @@
-# API .NET
+#  Web API ASP .NET Core (.NET 6)
+
 
 - Projeto desenvolvido, utilizando o EFCore 
 - SQL Server 
