@@ -8,4 +8,6 @@ namespace APICatalogo.Models;
         public decimal Preco { get; set; }
         public string Estoque { get; set; }
         public DateTime ImagemUrl { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
     }
