@@ -21,7 +21,7 @@ namespace APICatalogo.Models;
         public decimal Preco { get; set; }
         
         [Required]
-        public string Estoque { get; set; }
+        public int Estoque { get; set; }
         
         [Required]
         [StringLength(80)]

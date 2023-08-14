@@ -34,7 +34,7 @@ namespace APICatalogo.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Preco = table.Column<decimal>(type: "Decimal (10,2)", nullable: false),
-                    Estoque = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estoque = table.Column<int>(type: "int", nullable: false),
                     ImagemUrl = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false)
