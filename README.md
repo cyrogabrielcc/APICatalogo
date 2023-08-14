@@ -3,4 +3,5 @@
 
 - Projeto desenvolvido, utilizando o EFCore 
 - SQL Server 
-- Utilizou-se o docker para conteinizar 
+- Utilizou-se o docker para conteinizar o banco de dados
+- 

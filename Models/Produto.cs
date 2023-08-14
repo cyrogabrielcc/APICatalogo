@@ -8,14 +8,18 @@ namespace APICatalogo.Models;
     {
         [Key]
         public int ProdutoId { get; set; }
+      
         [Required]
         public string Nome { get; set; }
+       
         [Required]
         [StringLength(80)]
         public string Descricao { get; set; }
+        
         [Required]
         [Column(TypeName = "Decimal (10, 2)")]
         public decimal Preco { get; set; }
+       
         [Required]
         public string Estoque { get; set; }
         
