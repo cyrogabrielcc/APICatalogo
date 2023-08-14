@@ -19,13 +19,17 @@ namespace APICatalogo.Models;
         [Required]
         [Column(TypeName = "Decimal (10, 2)")]
         public decimal Preco { get; set; }
-       
+        
         [Required]
         public string Estoque { get; set; }
         
         [Required]
         [StringLength(80)]
-        public DateTime ImagemUrl { get; set; }
+        public string ImagemUrl { get; set; }
+        
         public int CategoriaId { get; set; }
+        
+        public DateTime DataCadastro {get; set; }
+        
         public Categoria Categoria { get; set; }
     }

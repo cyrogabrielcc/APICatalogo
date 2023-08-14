@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APICatalogo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230814200949_Ajuste")]
-    partial class Ajuste
+    [Migration("20230814224556_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace APICatalogo.Migrations
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -68,9 +71,10 @@ namespace APICatalogo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ImagemUrl")
+                    b.Property<string>("ImagemUrl")
+                        .IsRequired()
                         .HasMaxLength(80)
-                        .HasColumnType("datetime2");
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
