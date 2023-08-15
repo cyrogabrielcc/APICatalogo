@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using APICatalogo.Context;
 using APICatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
@@ -24,6 +25,12 @@ namespace APICatalogo.Controllers
         public ActionResult<IEnumerable<Categoria>> Get()
         {
             return _context.Categorias.ToList();
+        }
+
+        [HttpGet("produtos")]
+        public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
+        {
+            return _context.Categorias.Include(p=>p.Produtos).ToList();
         }
 
         [HttpGet("id:int", Name ="ObterCategoria")]
@@ -59,7 +66,7 @@ namespace APICatalogo.Controllers
         {
             if(categoria == null) return BadRequest();
 
-            _context.Entry(categoria).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.Entry(categoria).State = EntityState.Modified;
             _context.SaveChanges();
             return Ok(categoria);
         }
@@ -75,7 +82,6 @@ namespace APICatalogo.Controllers
             _context.SaveChanges();
 
             return Ok(categoria);
-
         }
     }
 }
