@@ -24,6 +24,7 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
+            // Não devemos retornar todos, sempre deve haver um filtro: ...Produtos.Take(10) ou Where(c=>c.ExampleId <= 5)
             return _context.Categorias.AsNoTracking().ToList();
         }
 
@@ -32,7 +33,6 @@ namespace APICatalogo.Controllers
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
-            // Não devemos retornar todos, sempre deve haver um filtro: ...Produtos.Take(10) ou Where(c=>c.ExampleId <= 5)
             return _context.Categorias.AsNoTracking().Include(p=>p.Produtos).ToList();
         }
 
