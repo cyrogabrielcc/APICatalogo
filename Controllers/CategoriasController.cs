@@ -64,6 +64,7 @@ namespace APICatalogo.Controllers
             return Ok(categoria);
         }
 
+        [HttpDelete("{id:int}")]
         public ActionResult<Categoria> Delete(int id)
         {
             var categoria = _context.Categorias.FirstOrDefault(c => c.CategoriaId == id);
