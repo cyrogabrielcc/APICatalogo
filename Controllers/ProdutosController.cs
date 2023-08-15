@@ -27,7 +27,27 @@ namespace APICatalogo.Controllers
             return _context.Produtos.ToList();
         }
 
-        
+        // -------------- Retornando um produto --------------
+
+        [HttpGet("{id:int}")]
+        public ActionResult<Produto> Get(int id)
+        {
+            // Faz um lambda para pegar e selecionar o produto pelo id inserido na operação
+            var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
+            
+            if(produto == null)
+            {
+                return NotFound();
+            }
+
+            return produto;
+        }
+
+
+
+
+
+
 
     }
 }
