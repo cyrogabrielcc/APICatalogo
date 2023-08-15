@@ -27,11 +27,15 @@ namespace APICatalogo.Controllers
             return _context.Categorias.ToList();
         }
 
+        // ----- GET PRODUTOS CATEGORIAS -----
+
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
             return _context.Categorias.Include(p=>p.Produtos).ToList();
         }
+
+        // ----- CATEGORIA ID -----
 
         [HttpGet("id:int", Name ="ObterCategoria")]
         public ActionResult<Categoria> Get(int id)
@@ -43,6 +47,8 @@ namespace APICatalogo.Controllers
 
             return Ok(categoria);
         }
+
+        // ----- POST CATEGORIAS -----
 
         [HttpPost]
         public ActionResult Post(Categoria categoria)
@@ -60,6 +66,8 @@ namespace APICatalogo.Controllers
             );
         }
 
+        // ----- PUT CATEGORIAS -----
+
         [HttpPut("{id:int}")]
 
         public ActionResult Put(int id, Categoria categoria)
@@ -71,6 +79,8 @@ namespace APICatalogo.Controllers
             return Ok(categoria);
         }
 
+        // ----- DELETE CATEGORIAS -----
+        
         [HttpDelete("{id:int}")]
         public ActionResult<Categoria> Delete(int id)
         {
