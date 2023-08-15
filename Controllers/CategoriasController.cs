@@ -24,7 +24,7 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
-            return _context.Categorias.ToList();
+            return _context.Categorias.AsNoTracking().ToList();
         }
 
         // ----- GET PRODUTOS CATEGORIAS -----
@@ -32,7 +32,7 @@ namespace APICatalogo.Controllers
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
-            return _context.Categorias.Include(p=>p.Produtos).ToList();
+            return _context.Categorias.AsNoTracking().Include(p=>p.Produtos).ToList();
         }
 
         // ----- CATEGORIA ID -----
@@ -41,7 +41,7 @@ namespace APICatalogo.Controllers
         public ActionResult<Categoria> Get(int id)
         {
 
-            var categoria = _context.Categorias.FirstOrDefault(c => c.CategoriaId == id);
+            var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(c => c.CategoriaId == id);
             
             if (categoria is null) return NotFound("Não encontrado...");
 

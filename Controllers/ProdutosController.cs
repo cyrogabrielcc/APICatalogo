@@ -24,11 +24,11 @@ namespace APICatalogo.Controllers
        
         [HttpGet]
         public  ActionResult<IEnumerable<Produto>> Get(){
-            if(_context.Produtos.ToList() is null)
+            if(_context.Produtos.AsNoTracking().ToList() is null)
             {
                 return NotFound();
             }
-            return _context.Produtos.ToList();
+            return _context.Produtos.AsNoTracking().ToList();
         }
 
         
