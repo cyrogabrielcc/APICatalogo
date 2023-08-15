@@ -61,9 +61,9 @@ namespace APICatalogo.Controllers
             // Retorna a rota específica do produto
             return new CreatedAtRouteResult
             (
-            "ObterProduto", 
-             new{id=produto.ProdutoId}, 
-             produto
+                "ObterProduto", 
+                new{id=produto.ProdutoId}, 
+                produto
             );
         }
 
