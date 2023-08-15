@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace APICatalogo.Controllers
             return Ok(categoria);
         }
 
+        [HttpPost]
         public ActionResult Post(Categoria categoria)
         {
             if (categoria == null) return BadRequest();
@@ -49,6 +51,17 @@ namespace APICatalogo.Controllers
                 new {id=categoria.CategoriaId}, 
                 categoria
             );
+        }
+
+        [HttpPut("{id:int}")]
+
+        public ActionResult Put(int id, Categoria categoria)
+        {
+            if(categoria == null) return BadRequest();
+
+            _context.Entry(categoria).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return Ok(categoria);
         }
 
 
