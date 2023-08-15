@@ -68,7 +68,7 @@ namespace APICatalogo.Controllers
         }
 
         // -------------- Atualiza um produto --------------
-        [HttpPut("{int:id}")]
+        [HttpPut("{id:int}")]
         public ActionResult Put(int id, Produto produto)
         {
             if(id != produto.ProdutoId)
