@@ -71,14 +71,22 @@ namespace APICatalogo.Controllers
         [HttpPut("{id:int}")]
         public ActionResult Put(int id, Produto produto)
         {
-            if(id != produto.ProdutoId)
-            {
-                return BadRequest();
-            }
+            if(id != produto.ProdutoId){return BadRequest();}
             
             // Sinalizando a modificação do objeto
             _context.Entry(produto).State = EntityState.Modified;
             _context.SaveChanges();
+            return Ok(produto);
+
+        }
+        // -------------- Deletando um produto --------------
+
+        public ActionResult Delete(int id)
+        {
+            var produto = _context.Produtos.FirstOrDefault(produto => produto.ProdutoId == id);
+            if (produto is null) {return NotFound();}
+
+            _context.Produtos.Remove(produto);
             return Ok(produto);
 
         }
