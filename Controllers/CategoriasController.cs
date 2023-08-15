@@ -64,6 +64,17 @@ namespace APICatalogo.Controllers
             return Ok(categoria);
         }
 
+        public ActionResult<Categoria> Delete(int id)
+        {
+            var categoria = _context.Categorias.FirstOrDefault(c => c.CategoriaId == id);
 
+            if (categoria is null) return NotFound();
+
+            _context.Categorias.Remove(categoria);
+            _context.SaveChanges();
+
+            return Ok(categoria);
+
+        }
     }
 }
