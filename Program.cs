@@ -22,6 +22,7 @@ builder.Services.AddControllers().AddJsonOptions(
                     .ReferenceHandler = ReferenceHandler.IgnoreCycles
     );
 
+// Registra o serviço, será criado toda vez que for solicitado
 builder.Services.AddTransient<IMeuServico,MeuServico>();
                     
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
