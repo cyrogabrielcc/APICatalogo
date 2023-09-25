@@ -1,10 +1,9 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using APICatalogo.Context;
 
 namespace APICatalogo.Models;
 
-    public class Categoria
+public class Categoria
     {
         // Boa prática de inicializar a classe produto
         public Categoria()
