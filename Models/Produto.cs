@@ -9,29 +9,38 @@ namespace APICatalogo.Models;
     {
         [Key]
         public int ProdutoId { get; set; }
-      
-        [Required]
+
+        // --------------------------------------------
+        [Required(ErrorMessage = "Nome obrigatório" )]
+        [MaxLength(80)]
         public string Nome { get; set; }
        
-        [Required]
+        // --------------------------------------------
+        [Required(ErrorMessage = "Descrição obrigatória" )]
         [StringLength(80)]
         public string Descricao { get; set; }
         
-        [Required]
+        // --------------------------------------------
+        [Required(ErrorMessage = "Preço obrigatório" )]
         [Column(TypeName = "Decimal (10, 2)")]
         public decimal Preco { get; set; }
         
-        [Required]
+        // --------------------------------------------
+        [Required(ErrorMessage = "Valor de estoque obrigatório" )]
         public int Estoque { get; set; }
         
-        [Required]
+        // --------------------------------------------
+        [Required(ErrorMessage="Favor inserir a URL da imagem")]
         [StringLength(80)]
         public string ImagemUrl { get; set; }
         
+        // --------------------------------------------
         public int CategoriaId { get; set; }
         
+        // --------------------------------------------
         public DateTime DataCadastro {get; set; }
         
+        // --------------------------------------------
         [JsonIgnore]
         public Categoria Categoria { get; set; }
     }
