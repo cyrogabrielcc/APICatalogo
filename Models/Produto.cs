@@ -7,17 +7,18 @@ namespace APICatalogo.Models;
     [Table("Produtos")]
     public class Produto
     {
+        // --------------------------------------------
         [Key]
         public int ProdutoId { get; set; }
 
         // --------------------------------------------
         [Required(ErrorMessage = "Nome obrigatório" )]
-        [MaxLength(80)]
+        [StringLength(20, ErrorMessage = "entre 3 e 20 caracteres", MinimumLength = 3)]
         public string Nome { get; set; }
        
         // --------------------------------------------
         [Required(ErrorMessage = "Descrição obrigatória" )]
-        [StringLength(80)]
+        [StringLength(80, ErrorMessage = "entre 3 e 20 caracteres", MinimumLength = 5)]
         public string Descricao { get; set; }
         
         // --------------------------------------------
