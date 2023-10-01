@@ -23,7 +23,7 @@ namespace APICatalogo.Models;
         
         // --------------------------------------------
         [Required(ErrorMessage = "Preço obrigatório" )]
-        [Column(TypeName = "Decimal (10, 2)")]
+        [Range(1,10000, ErrorMessage = "Os preços devem estar entre R$ {1} e R$ {2}")]
         public decimal Preco { get; set; }
         
         // --------------------------------------------
@@ -32,7 +32,7 @@ namespace APICatalogo.Models;
         
         // --------------------------------------------
         [Required(ErrorMessage="Favor inserir a URL da imagem")]
-        [StringLength(80)]
+        [StringLength(300, ErrorMessage = "Deve ter entre 2 e 300 caracteres", MinimumLength = 1)]
         public string ImagemUrl { get; set; }
         
         // --------------------------------------------

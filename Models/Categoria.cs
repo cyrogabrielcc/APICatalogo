@@ -12,12 +12,15 @@ public class Categoria
         }
         [Key]
         public int CategoriaId { get; set; }
+        
         [Required]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Deve ter entre 2 e 50 caracteres", MinimumLength = 2 )]
         public string Nome { get; set; }
+        
         [Required]
-        [StringLength(300)]
+        [StringLength(300, ErrorMessage = "Deve ter entre 2 e 300 caracteres", MinimumLength = 1)]
         public string ImagemUrl { get; set; }
+        
         public ICollection<Produto> Produtos{ get; set; } 
         
     }
