@@ -60,7 +60,8 @@ namespace APICatalogo.Models;
             // Validando o Estoque
             if (this.Estoque <= 0) yield return new ValidationResult("O Estoque não deve ser 0!", new[] { nameof(this.Estoque) });
 
-
+            // Validando o Preço
+            if (this.Preco <= 0) new ValidationResult("O preço não deve ser 0!", new[] { nameof(this.Preco) });
         }
     }
 }
